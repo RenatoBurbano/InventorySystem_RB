@@ -1,0 +1,40 @@
+.container {
+  font-family: Arial, sans-serif;
+}
+
+header {
+  background-color: #333;
+  padding: 1rem;
+}
+
+.nav-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-menu li {
+  display: inline;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.nav-menu a:hover {
+  background-color: #555;
+}
+
+.nav-menu a.active {
+  background-color: #007bff;
+}
+
+main {
+  padding: 2rem;
+}

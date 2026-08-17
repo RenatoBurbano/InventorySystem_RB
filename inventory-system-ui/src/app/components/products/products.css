@@ -1,0 +1,17 @@
+.create-product {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.footer-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

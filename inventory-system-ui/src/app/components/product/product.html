@@ -1,0 +1,133 @@
+<div class="product-component">
+  <div class="form-header">
+    <h2>{{ isEditMode ? 'Editar Producto' : 'Nuevo Producto' }}</h2>
+  </div>
+
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+    <div class="form-row">
+      <div class="form-group col-full">
+        <label for="name">Nombre del Producto</label>
+        <input
+          type="text"
+          id="name"
+          formControlName="name"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': name?.invalid && name?.touched,
+          }"
+        />
+        <div class="error-message" *ngIf="name?.invalid && name?.touched">
+          <span *ngIf="name?.errors?.['required']">El nombre es requerido</span>
+          <span *ngIf="name?.errors?.['maxlength']">Máximo 100 caracteres</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-full">
+        <label for="description">Descripción</label>
+        <textarea
+          id="description"
+          formControlName="description"
+          rows="4"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': description?.invalid && description?.touched,
+          }"
+        ></textarea>
+        <div class="error-message" *ngIf="description?.invalid && description?.touched">
+          <span *ngIf="description?.errors?.['required']">La descripción es requerida</span>
+          <span *ngIf="description?.errors?.['maxlength']">Máximo 500 caracteres</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-full">
+        <label for="category">Categoria del Producto</label>
+        <input
+          type="text"
+          id="category"
+          formControlName="category"
+          class="form-control"
+          [ngClass]="{
+            'is-invalid': category?.invalid && category?.touched,
+          }"
+        />
+        <div class="error-message" *ngIf="category?.invalid && category?.touched">
+          <span *ngIf="category?.errors?.['required']">La categoria es requerido</span>
+          <span *ngIf="category?.errors?.['maxlength']">Máximo 100 caracteres</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-full">
+        <label for="image">URL de la Imagen</label>
+        <input
+          type="url"
+          id="image"
+          formControlName="image"
+          class="form-control"
+          (input)="onImagenChange()"
+          [ngClass]="{
+            'is-invalid': image?.invalid && image?.touched,
+          }"
+        />
+        <div class="error-message" *ngIf="image?.invalid && image?.touched">
+          <span *ngIf="image?.errors?.['required']">La URL es requeridaa</span>
+          <span *ngIf="image?.errors?.['pattern']">Debe ser una URL válida (https://...)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-half">
+        <label for="price">Precio</label>
+        <input
+          type="number"
+          id="price"
+          formControlName="price"
+          class="form-control"
+          placeholder="0.00"
+          step="0.01"
+          min="0"
+          [ngClass]="{
+            'is-invalid': price?.invalid && price?.touched,
+          }"
+        />
+        <div class="error-message" *ngIf="price?.invalid && price?.touched">
+          <span *ngIf="price?.errors?.['required']">El precio es requerido</span>
+          <span *ngIf="price?.errors?.['min']">El precio debe ser mayor a 0</span>
+          <span *ngIf="price?.errors?.['pattern']">Formato inválido (ej: 99.99)</span>
+        </div>
+      </div>
+
+      <div class="form-group col-half">
+        <label for="stock">Stock</label>
+        <input
+          type="number"
+          id="stock"
+          formControlName="stock"
+          class="form-control"
+          placeholder="0"
+          min="0"
+          [ngClass]="{
+            'is-invalid': stock?.invalid && stock?.touched,
+          }"
+        />
+        <div class="error-message" *ngIf="stock?.invalid && stock?.touched">
+          <span *ngIf="stock?.errors?.['required']">El stock es requerido</span>
+          <span *ngIf="stock?.errors?.['min']">El stock no puede ser negativo</span>
+          <span *ngIf="stock?.errors?.['pattern']">Debe ser un número entero</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">
+        {{ isEditMode ? 'Actualizar Producto' : 'Agregar Producto' }}
+      </button>
+    </div>
+  </form>
+</div>

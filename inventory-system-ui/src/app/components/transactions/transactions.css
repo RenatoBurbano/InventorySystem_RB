@@ -1,0 +1,34 @@
+.create-transaction {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.footer-table {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.col-half {
+  flex: 1 1 calc(50% - 0.5rem);
+  min-width: 200px;
+}

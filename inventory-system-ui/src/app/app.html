@@ -1,0 +1,24 @@
+<div class="container">
+  <header>
+    <nav>
+      <ul class="nav-menu">
+        <li>
+          <a
+            routerLink="/products"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+          >
+            Productos
+          </a>
+        </li>
+        <li>
+          <a routerLink="/transactions" routerLinkActive="active"> Transacciones </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
