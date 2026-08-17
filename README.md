@@ -77,4 +77,18 @@
         TotalPrice DECIMAL(18,2) NOT NULL,
         Detail NVARCHAR(500)
     );  
+
+    USE TransactionDb;
+    GO
+    
+    INSERT INTO Transactions
+    VALUES
+    	('Purchase', 1, 1, 1200.00, 1200.00, 'Primer Stock computadora Gaming'),
+    	('Purchase', 2, 2, 45.00, 90.00, 'Primer Stock mouse Gaming'),
+    	('Purchase', 1, 1, 1200.00, 1200.00, 'Segundo Stock computadora Gaming'),
+    	('Purchase', 4, 10, 80.00, 800.00, 'Primer Stock teclados Gaming'),
+    	('Sale', 1, 1, 1200.00, 1200.00, 'Primera Venta laptop gaming'),
+    	('Sale', 3, 1, 210.00, 210.00, 'Venta de monitor'),
+    	('Purchase', 3, 10, 210.00, 2100.00, 'Re stock Pantallas'),
+    	('Sale', 3, 2, 210.00, 420.00, 'Venta 2 monitores'),
 \`\`\`
