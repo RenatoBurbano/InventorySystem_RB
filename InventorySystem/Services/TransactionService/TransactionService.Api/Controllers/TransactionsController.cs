@@ -132,7 +132,7 @@ namespace TransactionService.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteProduct(Guid id)
+        public async Task<IActionResult> DeleteTransaction(Guid id)
         {
             var product = await _context.Transactions.FindAsync(id);
             if (product == null)
