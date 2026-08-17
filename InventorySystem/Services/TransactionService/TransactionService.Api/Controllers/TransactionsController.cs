@@ -131,6 +131,31 @@ namespace TransactionService.Api.Controllers
             }
         }
 
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdateTransaction(int id, TransactionDto transactionDto)
+        {
+            var transaction = await _context.Transactions.FindAsync(id);
+            if (transaction == null)
+                return NotFound();
+        
+            transaction.TransactionType = productDto.TransactionType;
+            transaction.ProductId = productDto.ProductId;
+            transaction.Amount = productDto.Amount;
+            transaction.UnitPrice = productDto.UnitPrice;
+            transaction.TotalPrice = productDto.TotalPrice;
+            transaction.Detail = productDto.Detail;
+
+            var stockUpdated = await _productServiceClient.UpdateProductStockAsync(
+                    transactionDto.ProductId, transaction.TransactionType);
+
+                if (!stockUpdated)
+                    throw new Exception("Failed to update product stock");
+        
+            await _context.SaveChangesAsync();
+        
+            return CreatedAtAction(nameof(GetTransaction), new { id = transaction.Id }, transaction);
+        }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTransaction(Guid id)
         {
