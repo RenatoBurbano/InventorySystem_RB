@@ -15,14 +15,14 @@
       * ApiGateway
       * Services/ProductService/ProductService.Api
       * Services/TransactionService/ProductService.Api
-  - Restaurar las dependencias dotnet restore
+  - Restaurar las dependencias \`\`\` dotnet restore \`\`\` 
   - Ejecutar la solución con VS
-  - La aplicación estará disponible en `http://localhost:5000`
+  - La aplicación estará disponible en \`\`\` http://localhost:5000 \`\`\` 
 # Ejecución FrontEnd
-  - clonar del repositorio el proyecto Angular (inventory-system-ui), utilizar Angular 21
-  - Instalar las dependencias con npm install
-  - Ejecutar el proyecto con ng serve --open
-  - Esta disponible en 'http://localhost:4200/'
+  - Clonar del repositorio el proyecto Angular (inventory-system-ui), utilizar Angular 21
+  - Instalar las dependencias con \`\`\` npm install \`\`\` 
+  - Ejecutar el proyecto con \`\`\` ng serve --open \`\`\` 
+  - Esta disponible en \`\`\` http://localhost:4200/ \`\`\` 
 # Ejecución SQL Server
   - Ejecutar los siguientes Scripts, para tener las bases de datos correspondientes y una data inicial
 
